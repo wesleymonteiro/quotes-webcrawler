@@ -4,4 +4,5 @@ class Quote
   field :author, type: String
   field :author_about, type: String
   field :tags, type: Array, default: []
+  belongs_to :user
 end
