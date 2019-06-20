@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :users do
         get :login
+        post :sign_in
       end
 
       get "quotes/:tag", action: :search, controller: "quotes"
