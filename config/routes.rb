@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   
   namespace :api do
     namespace :v1 do
+      resource :users do
+        get :login
+      end
+
       get "quotes/:tag", action: :search, controller: "quotes"
     end
   end   
