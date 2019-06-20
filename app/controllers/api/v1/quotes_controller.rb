@@ -3,8 +3,17 @@ require 'open-uri'
 class Api::V1::QuotesController < Api::ApiController
   def search
     request_from_uri
+    response = {}
     @quotes = current_user.quotes.where(tags: params[:tag])
-    render json: @quotes
+    response["quotes"] = @quotes.map do |quote|
+      {
+        quote: quote.quote,
+        author: quote.author,
+        author_about: quote.author_about,
+        tags: quote.tags
+      }
+    end
+    render json: response
   end
 
   private
