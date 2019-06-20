@@ -22,16 +22,16 @@ Usuários
  POST no endpoint `api/v1/users/sign_in` para criar seu usuário, ou GET no endpoint `api/v1/users/login` para receber seus dados, passando os seguintes parâmetros:
 ```json
 {
-  email: "example@example.com",
-  password: "123456"
+  "email": "example@example.com",
+  "password": "123456"
 }
 ```
 Após criar ou autenticar o usuário com sucesso, você receberá a resposta com token de acesso do usuário, da seguinte forma:
 ```json
 {
-  user: {
-    authentication_token: "UjfXjDUBrfWYkR27G7B3",
-    email: "example@example.com"
+  "user": {
+    "authentication_token": "UjfXjDUBrfWYkR27G7B3",
+    "email": "example@example.com"
   }
 }
 ```
@@ -41,7 +41,7 @@ Frases
 --
 GET no endpoint `api/v1/quotes/search/:tag` para buscar as frases. Substitue `:tag` pela tag que deseja buscar, como por exemplo *life* e *smile*. 
 
-No Header da requisição é necessário passar o email e o token do usuário para autenticação: 
+No Header da requisição é necessário passar o "email" e o token do usuário para autenticação: 
 ```json
 X-User-Email: "example@example.com",
 X-User-Token: "123456"
